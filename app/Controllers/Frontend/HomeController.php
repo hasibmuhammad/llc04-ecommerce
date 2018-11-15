@@ -43,7 +43,7 @@ class HomeController extends Controller
         if (\strlen($password) < 6) {
             $errors['password'] = 'Password must have at least 6 chars';
         }
-        if ($validator::image()->validate($profile_photo['name'])) {
+        if ($validator::image()->validate($profile_photo['name']) === false) {
             $errors['profile_photo'] = 'Profile photo must be an image file';
         }
 
